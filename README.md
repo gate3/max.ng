@@ -24,11 +24,3 @@ Or if you use npm
 npm install
 npm test -- --watch
 ```
-
-If all tests pass, you have successfully solved the questions.
-
-## Questions 3 & 4
-
-We need you to be our human linter. The code in the files have an error, could be syntactical or doesn't follow best practices.
-
-Fix the code. That is all.
