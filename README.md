@@ -1,7 +1,5 @@
 # MAX at Techpoint
 
-This repo contains questions you should be able to solve in a reasonable amount of time.
-
 ## Questions
 
 * [Question 1](Question-1.md)
