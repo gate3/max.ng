@@ -4,8 +4,6 @@
 
 * [Question 1](Question-1.md)
 * [Question 2](Question-2.md)
-* [Question 3](Question-3.md)
-* [Question 4](Question-4.md)
 
 ## Questions 1 & 2
 
