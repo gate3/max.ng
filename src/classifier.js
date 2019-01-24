@@ -5,7 +5,6 @@
  * @param {array} input Array of student objects
  */
 function classifier(input) {
-  // Your code should go here.
   
   if(!input || Object.prototype.toString.call(input) !== '[object Array]'){
     throw new Error('Invalid input')
@@ -19,11 +18,11 @@ function classifier(input) {
   //Deep clone the array, JSON fuction works because array is still an object type
   const cloneArray = JSON.parse(JSON.stringify(input))
 
-  //Create my own version of the array using prototype so we can use it like an event listener to perform required changes
+  //My own version of the traditional array using prototype so we can use it like an event listener to perform required changes. I wrote an article on how it works on dev.to, you can check that out here https://dev.to/gate3/extending-javascript-array-with-an-event-handler-1ce2
   const MyArray = function (){}
   MyArray.prototype = []
-  MyArray.prototype.sum = 0
-  MyArray.prototype.oldest = 0
+  MyArray.prototype.sum = 0 // Object variable to hold the sum of items 
+  MyArray.prototype.oldest = 0 // Object variable to hold the oldest age in the array
   MyArray.prototype.push = function (data) {
     if(data.age > this.oldest){
       this.oldest = data.age
@@ -48,13 +47,13 @@ function classifier(input) {
   } 
 
   /**
-   * Replace dob with age by using the map function to mutate the array objects
+   * Replace date of birth with age by using the map function to mutate the array objects
    */
-  const transformedInput = cloneArray.map(i=>{
-    const age = calculateAge(i.dob)
-    i.age = age
-    delete i.dob
-    return i
+  const transformedInput = cloneArray.map(input=>{
+    const age = calculateAge(input.dob)
+    input.age = age
+    delete input.dob
+    return input
   })
 
   /**
@@ -62,7 +61,7 @@ function classifier(input) {
    * @param {number} age1 First age
    * @param {number} age2 Second age
    * 
-   * Function helps compare the age difference constraint, to check if two different ages to find if their difference is greater than 5
+   * Function helps compare the age difference constraint, to check if the difference between two ages is greater than 5
    */
   const isGreaterThan5 = (age1, age2)=>{
     if(age1 > age2){
@@ -81,7 +80,7 @@ function classifier(input) {
    * 
    * (1) We declare a object (or hashtable) and a maincontainer to store our groups
    * (2) We loop through the input array and for each item we create a new Array using the extended array I created earlier (MyArray)
-   * (3) We store the current item in a hashtable to we know it has been sorted already
+   * (3) We store the current item in a hashtable so we know it has been sorted already
    * (4) We filter the main array and only get the items that is not the current item and have not been sorted before 
    * (5) We loop through the items from the filtered array and compare the current item with each one
    * (6) If the difference is not up to 5 push into the array we created in (2)
